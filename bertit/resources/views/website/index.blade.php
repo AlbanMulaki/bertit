@@ -5,161 +5,22 @@
     <div class="row">
         <div class='col-md-offset-1 col-md-9'>
             <div class="row">
+                @for($i=0;$i<4;$i++)
+                <?php $chunkedComments = $comments->chunk(4); ?>
                 <div class="col-md-3">
+                    @foreach($chunkedComments[$i] as $oneComments)
                     <div class="direct-chat-msg right">
                         <div class="direct-chat-text">
-                            You better believe it!
+                            {{ $oneComments->comments }}
                             <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
+                                {{ $oneComments->likes }} <i class="fa fa-thumbs-up "></i>
                             </span>
                         </div>
                     </div>
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ni prostitutë ja bon klientit t'vet që s'ja ka dhanë paret:
-                            Nuk osht puna për 20 euro, po duhet me pas ftyrë!
-                            <span style="float:right;" >
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            Mane Firmino Coutinho Wijnaldum
-                            Lovren Sakho Matip
-                            Karius
-                            <span style="float:right;" >
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col-md-3">
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            You better believe it!
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ni prostitutë ja bon klientit t'vet që s'ja ka dhanë paret:
-                            Nuk osht puna për 20 euro, po duhet me pas ftyrë!
-                            <span style="float:right;">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            Mane Firmino Coutinho Wijnaldum
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            Lovren Sakho Matip
-                            Karius
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            You better believe it!
-                            <span style="float:right;" >
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ni prostitutë ja bon klientit t'vet që s'ja ka dhanë paret:
-                            <span style="float:right;" >
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            Mane Firmino Coutinho Wijnaldum
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            Lovren Sakho Matip
-                            Karius
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            You better believe it!
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Ni prostitutë ja bon klientit t'vet që s'ja ka dhanë paret:
-                            Nuk osht puna për 20 euro, po duhet me pas ftyrë!
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-text">
-                            Ballotelli Benteke Sturridge
-                            Mane Firmino Coutinho Wijnaldum
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="direct-chat-msg left">
-                        <div class="direct-chat-text">
-                            Karius
-                            <span style="float:right;" class="text-green">
-                                31 <i class="fa fa-thumbs-up "></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                @endfor
             </div>
-
 
             <div class="row">
                 <div class="col-md-12">
@@ -176,19 +37,20 @@
                                 </div>
                             </div>
                         </li>
+
+                        @foreach($comments as $oneComments)
                         <li>
                             <div class="direct-chat-msg left">
                                 <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
+                                    {{ $oneComments->comments }}
                                     <span style="float:right;">
-                                        31451 <i class="fa fa-thumbs-up "></i>
+
+                                        {{ $oneComments->likes }} <i class="fa fa-thumbs-up "></i>
                                     </span>
                                 </div>
                             </div>
                         </li>
+                        @endforeach
                         <li>
                             <div class="direct-chat-msg left">
                                 <div class="direct-chat-text">

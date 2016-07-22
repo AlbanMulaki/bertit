@@ -3,20 +3,19 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Comments extends Migration
-{
+class Comments extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('ipaddress',19);
+            $table->char('ipaddress', 19);
             $table->text('comments');
-            $table->int('likes');
+            $table->integer('likes');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,8 +26,8 @@ class Comments extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::drop('comments');
     }
+
 }

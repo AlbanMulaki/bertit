@@ -11,6 +11,4 @@
 |
 */
  
-Route::get('/', function () {
-    return view('website.index');
-});
+Route::controller('/', 'WebsiteController');
