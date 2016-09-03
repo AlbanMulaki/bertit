@@ -13,5 +13,13 @@
         <script src="/assets/js/bootstrap.min.js"></script>
         <script src="/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/assets/js/app.min.js"></script>
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        </script>
+        @yield('scripts')
     </body>
 </html>

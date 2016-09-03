@@ -6,14 +6,16 @@
         <div class='col-md-offset-1 col-md-9'>
             <div class="row">
                 @for($i=0;$i<4;$i++)
-                <?php $chunkedComments = $comments->chunk(4); ?>
+                <?php 
+                $chunkedComments = $comments->random(4);
+                ?>
                 <div class="col-md-3">
-                    @foreach($chunkedComments[$i] as $oneComments)
+                    @foreach($chunkedComments as $oneComments)
                     <div class="direct-chat-msg right">
                         <div class="direct-chat-text">
-                            {{ $oneComments->comments }}
+                            {{ $oneComments->first()->comments }}
                             <span style="float:right;" class="text-green">
-                                {{ $oneComments->likes }} <i class="fa fa-thumbs-up "></i>
+                               <i class="fa fa-thumbs-up "></i>
                             </span>
                         </div>
                     </div>
@@ -24,228 +26,26 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <ul class="timeline">
+                    <ul class="timeline" id='latestComments'>
                         <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    <div class="input-group input-group-lg">
-                                        <input class="form-control" type="text" placeholder="Bertit qka dush ti, thuj qka dush ti..."></input>
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-teal btn-flat">Posto!</button>
-                                        </span>
+                            <form action="{{ action('WebsiteController@postComments') }}" method="POST">
+                                <div class="direct-chat-msg left">
+                                    <div class="direct-chat-text">
+                                        <div class="input-group input-group-lg">
+                                            <input class="form-control" type="text" name="comments" id="comments" placeholder="Bertit qka dush ti, thuj qka dush ti..."></input>
+                                            <span class="input-group-btn">
+                                                <button type="button" id="postComments" class="btn btn-teal btn-flat">Posto!</button>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </li>
 
                         @foreach($comments as $oneComments)
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    {{ $oneComments->comments }}
-                                    <span style="float:right;">
-
-                                        {{ $oneComments->likes }} <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
+                        @include('website.partials.comments',['comments'=>$oneComments])
                         @endforeach
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;" class="text-green">
-                                        31 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="direct-chat-msg left">
-                                <div class="direct-chat-text">
-                                    Ballotelli Benteke Sturridge
-                                    Mane Firmino Coutinho Wijnaldum
-                                    Lovren Sakho Matip
-                                    Karius
-                                    <span style="float:right;">
-                                        5555 <i class="fa fa-thumbs-up "></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
+
 
 
                         <li>
@@ -262,4 +62,45 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('scripts')
+
+<script>
+    $('#postComments').click(function () {
+        var comments = $('#comments').val();
+        var structure = $('#latestComments li:nth-child(2)');
+        var commentsTemplate = "<li><div class='direct-chat-msg left'><div class='direct-chat-text comments'>" + comments + "<span style='float:right;'>0 <i class='fa fa-thumbs-up '></i></span></div></div></li>";
+        structure.before(commentsTemplate);
+
+        $.ajax({
+            url: '{{ action('WebsiteController@postComments')}}',
+            method: 'POST',
+            data: {comments: comments}
+        }).done(function (data) {
+            console.log(data);
+        });
+    });
+    $('.likeComments').click(function () {
+        var comments = $(this).data('commentid');
+        var like = $(this);
+        $.ajax({
+        url: '{{ action('WebsiteController@postUpLikes')}}',
+                method: 'POST',
+                data: {
+                    commentId: comments
+                }
+    }).done(function (data) {
+        like.addClass('text-green');
+        like.find('i').animate({
+                opacity: 0.25,
+                fontSize: "24px",
+                left: "+=50",
+                height: "toggle"
+        }, 1000, function () {
+            // Animation complete.
+        });
+    });
+    });
+</script>
 @stop
